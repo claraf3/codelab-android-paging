@@ -22,7 +22,6 @@ import androidx.paging.PagingState
 import androidx.paging.RemoteMediator
 import androidx.room.withTransaction
 import com.example.android.codelabs.paging.api.GithubService
-import com.example.android.codelabs.paging.api.IN_QUALIFIER
 import com.example.android.codelabs.paging.db.RemoteKeys
 import com.example.android.codelabs.paging.db.RepoDatabase
 import com.example.android.codelabs.paging.model.Repo
@@ -82,8 +81,7 @@ class GithubRemoteMediator(
             }
         }
 
-        val apiQuery = query + IN_QUALIFIER
-
+        val apiQuery = query
         try {
             val apiResponse = service.searchRepos(apiQuery, page, state.config.pageSize)
 

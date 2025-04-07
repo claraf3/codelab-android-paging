@@ -18,7 +18,6 @@ package com.example.android.codelabs.paging.data
 
 import android.util.Log
 import com.example.android.codelabs.paging.api.GithubService
-import com.example.android.codelabs.paging.api.IN_QUALIFIER
 import com.example.android.codelabs.paging.model.Repo
 import com.example.android.codelabs.paging.model.RepoSearchResult
 import kotlinx.coroutines.flow.Flow
@@ -77,7 +76,7 @@ class GithubRepository(private val service: GithubService) {
         isRequestInProgress = true
         var successful = false
 
-        val apiQuery = query + IN_QUALIFIER
+        val apiQuery = query
         try {
             val response = service.searchRepos(apiQuery, lastRequestedPage, NETWORK_PAGE_SIZE)
             Log.d("GithubRepository", "response $response")
